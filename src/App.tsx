@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { calc, espesorRecomendado, gasDefault, type Aperturas, type CamaraInput, type Gas, type Iluminacion, type Servicio } from './lib/calc'
 import { generarPDF } from './lib/pdf'
 import { getHistorial, getVendedor, pushHistorial, setVendedor as setVendedorLS } from './lib/storage'
+import { APP_INFO, DEV_INFO } from './config'
 
 const TEMP_INT_OPTS = [-30, -25, -20, -18, -15, -10, -5, 0, 2, 4, 5, 8, 10]
 const TEMP_EXT_OPTS = [30, 35, 40, 45, 50]
@@ -490,6 +491,48 @@ export default function App() {
           </div>
         </div>
       </main>
+
+      {/* Footer pro */}
+      <footer className="max-w-[720px] mx-auto px-4 pb-28">
+        <div className="rounded-2xl bg-white border border-slate-200 p-4 md:p-5">
+          <div className="flex gap-3">
+            <div className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center font-extrabold text-sm shrink-0">FD</div>
+            <div className="flex-1 min-w-0">
+              <div className="font-bold text-sm leading-none">Creado por {DEV_INFO.nombre}</div>
+              <div className="text-xs text-slate-500 mt-1">{DEV_INFO.slogan} • {DEV_INFO.ubicacion}</div>
+              <div className="text-xs text-slate-600 mt-2 flex flex-wrap gap-x-3 gap-y-1">
+                <a href={`mailto:${DEV_INFO.email}`} className="hover:text-cyan-700 underline decoration-slate-300">{DEV_INFO.email}</a>
+                <a href={`tel:${DEV_INFO.telefono.replace(/\s/g,'')}`} className="hover:text-cyan-700">{DEV_INFO.telefono}</a>
+                <a href={DEV_INFO.web} target="_blank" rel="noreferrer" className="hover:text-cyan-700 font-medium">{DEV_INFO.webLabel} ↗</a>
+              </div>
+            </div>
+            <div className="hidden md:flex flex-col gap-1 text-xs">
+              <a href={DEV_INFO.web} target="_blank" rel="noreferrer" className="bg-slate-900 text-white px-3 py-2 rounded-full font-bold text-center">Visitar web</a>
+              <a href={`https://wa.me/${DEV_INFO.whatsapp}?text=${encodeURIComponent('Hola '+DEV_INFO.nombre+', vi la app Cálculo Cámara de Frío y quiero contactarte')}`} target="_blank" rel="noreferrer" className="bg-emerald-500 text-white px-3 py-2 rounded-full font-bold text-center">WhatsApp</a>
+            </div>
+          </div>
+
+          <div className="md:hidden grid grid-cols-2 gap-2 mt-3">
+            <a href={DEV_INFO.web} target="_blank" rel="noreferrer" className="bg-slate-900 text-white rounded-xl py-2.5 font-bold text-sm text-center">Visitar web</a>
+            <a href={`https://wa.me/${DEV_INFO.whatsapp}`} target="_blank" rel="noreferrer" className="bg-emerald-500 text-white rounded-xl py-2.5 font-bold text-sm text-center">WhatsApp</a>
+          </div>
+
+          <div className="mt-4 pt-3 border-t border-slate-100 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-slate-400">
+            <span>© {new Date().getFullYear()} {APP_INFO.nombre}</span>
+            <span>v{APP_INFO.version}</span>
+            <a href={DEV_INFO.web} target="_blank" rel="noreferrer" className="hover:text-slate-600">Privacidad</a>
+            <a href={DEV_INFO.web} target="_blank" rel="noreferrer" className="hover:text-slate-600">Términos</a>
+            <a href={`mailto:${DEV_INFO.email}?subject=Soporte ${APP_INFO.nombre}`} className="hover:text-slate-600">Soporte</a>
+            <span className="ml-auto hidden md:inline">Hecho con ❄ + React + PWA</span>
+          </div>
+          <div className="mt-2 text-[10px] leading-relaxed text-slate-400">
+            App interna de predimensionamiento. No reemplaza el cálculo frigorífico profesional ni la selección por capacidad del fabricante. Si encontrás un error, contactá a {DEV_INFO.nombre}.
+          </div>
+        </div>
+        <div className="text-center text-[10px] text-slate-400 mt-3">
+          ¿Necesitás una app similar para tu negocio? <a href={DEV_INFO.web} target="_blank" rel="noreferrer" className="text-cyan-700 font-semibold hover:underline">Hablemos →</a>
+        </div>
+      </footer>
 
       {/* Bottom bar */}
       <div className="fixed bottom-0 inset-x-0 bg-white border-t border-slate-200 p-3">

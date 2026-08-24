@@ -1,5 +1,6 @@
 import jsPDF from 'jspdf'
 import type { CalcResult, CamaraInput } from './calc'
+import { APP_INFO, DEV_INFO } from '../config'
 
 export function generarPDF(opts: {
   cliente: string
@@ -110,8 +111,12 @@ export function generarPDF(opts: {
   // Footer
   doc.setFontSize(6)
   doc.setTextColor(130, 130, 130)
-  doc.text('Predimensionamiento orientativo. La selección definitiva debe hacerse con carga térmica completa y capacidad frigorífica del fabricante a Tevap/Tcond reales. R290 requiere equipos certificados.', 14, 285, { maxWidth: 182 })
-  doc.text('Generado por Cálculo Cámara de Frío — PWA offline', 14, 290)
+  doc.text('Predimensionamiento orientativo. La selección definitiva debe hacerse con carga térmica completa y capacidad frigorífica del fabricante a Tevap/Tcond reales. R290 requiere equipos certificados.', 14, 282, { maxWidth: 182 })
+  doc.text(`Generado por ${APP_INFO.nombre} v${APP_INFO.version} — PWA offline`, 14, 287)
+  doc.setFont('helvetica', 'bold')
+  doc.text(`Creado por ${DEV_INFO.nombre} — ${DEV_INFO.webLabel} — ${DEV_INFO.email} — ${DEV_INFO.telefono}`, 14, 291, { maxWidth: 182 })
+  doc.setFont('helvetica', 'normal')
+  doc.text(`© ${new Date().getFullYear()} ${DEV_INFO.nombre}. Todos los derechos reservados.`, 14, 294)
 
   doc.save(`Camara-${(cliente || 'cliente').replace(/\s+/g, '_')}-${fecha.replace(/\//g, '-')}.pdf`)
 }
