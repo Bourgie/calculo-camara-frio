@@ -1,0 +1,14 @@
+{
+  "name": "Cálculo Cámara de Frío",
+  "short_name": "Cámara Frío",
+  "description": "Calculadora rápida de cámara frigorífica — estimado HP, paneles, equipos y válvula",
+  "theme_color": "#0e7490",
+  "background_color": "#f8fafc",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
