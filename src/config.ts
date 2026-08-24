@@ -1,13 +1,13 @@
 export const DEV_INFO = {
-  nombre: 'Fulano Dev',
+  nombre: 'unfulanodev',
   slogan: 'Soluciones digitales a medida',
-  email: 'contacto@fulano.dev',
-  telefono: '+54 9 11 5555-0000',
-  whatsapp: '5491155550000', // sin + ni espacios para wa.me
-  web: 'https://fulano.dev',
-  webLabel: 'fulano.dev',
-  github: 'https://github.com/fulano-dev',
-  ubicacion: 'Buenos Aires, Argentina',
+  email: 'contacto@unfulanodev.com.ar',
+  telefono: '+54 9 351 742-4391',
+  whatsapp: '5493517424391', // sin + ni espacios para wa.me
+  web: 'https://unfulanodev.com.ar',
+  webLabel: 'unfulanodev.com.ar',
+  github: 'https://github.com/unfulanodev',
+  ubicacion: 'Córdoba, Argentina',
 } as const
 
 export const APP_INFO = {

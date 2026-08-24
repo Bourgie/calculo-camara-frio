@@ -496,7 +496,7 @@ export default function App() {
       <footer className="max-w-[720px] mx-auto px-4 pb-28">
         <div className="rounded-2xl bg-white border border-slate-200 p-4 md:p-5">
           <div className="flex gap-3">
-            <div className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center font-extrabold text-sm shrink-0">FD</div>
+            <div className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center font-extrabold text-xs shrink-0">UF</div>
             <div className="flex-1 min-w-0">
               <div className="font-bold text-sm leading-none">Creado por {DEV_INFO.nombre}</div>
               <div className="text-xs text-slate-500 mt-1">{DEV_INFO.slogan} • {DEV_INFO.ubicacion}</div>
